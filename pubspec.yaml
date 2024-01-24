@@ -9,6 +9,7 @@ environment:
   sdk: ">=3.2.3 <4.0.0"
 
 dependencies:
+  bitsdojo_window: ^0.1.6
   cupertino_icons: ^1.0.2
   equatable: ^2.0.5
   flutter:
@@ -52,4 +53,3 @@ flutter_intl:
   enabled: true
   arb_dir: lib/util/lang/l10n
   output_dir: lib/util/lang/generated
-
