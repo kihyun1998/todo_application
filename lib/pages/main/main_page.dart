@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todo_application/pages/main/widgets/sidebar.dart';
 
 class MainPage extends ConsumerWidget {
   const MainPage({super.key});
@@ -9,14 +10,13 @@ class MainPage extends ConsumerWidget {
     return Scaffold(
       body: SafeArea(
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: Container(
-                color: Colors.red,
-              ),
+            const Expanded(
+              child: SideBar(),
             ),
             Expanded(
-              flex: 6,
+              flex: 5,
               child: Container(
                 color: Colors.blue,
               ),

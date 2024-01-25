@@ -8,7 +8,9 @@ part of 'lang_provider.dart';
 
 String _$languageProviderHash() => r'edd79efef25c428966cecc198c6df8a4da022674';
 
-/// See also [LanguageProvider].
+/// 다국어 설정 변경 시 재기동 로직 실행되어야 한다.
+///
+/// Copied from [LanguageProvider].
 @ProviderFor(LanguageProvider)
 final languageProviderProvider =
     AutoDisposeNotifierProvider<LanguageProvider, Locale>.internal(
