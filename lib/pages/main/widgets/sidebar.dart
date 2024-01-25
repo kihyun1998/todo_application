@@ -1,91 +1,35 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todo_application/pages/main/providers/sidebar_provider.dart';
+import 'package:todo_application/util/lang/generated/l10n.dart';
 
-class SideBar extends StatelessWidget {
+class SideBar extends ConsumerWidget {
   const SideBar({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: Column(
-        /// [ToDo] 하드코딩 된거 바꾸기
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Expanded(
+      child: NavigationDrawer(
+        onDestinationSelected: (newIndex) {
+          ref.read(sideBarProvider.notifier).onDestinationSelected(newIndex);
+        },
+        selectedIndex: ref.watch(sideBarProvider).index,
         children: [
-          Expanded(
-            child: ListView(
-              children: [
-                WindowTitleBarBox(
-                  child: MoveWindow(),
-                ),
-                DrawerHeader(
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: Divider.createBorderSide(
-                        context,
-                        color: Colors.red,
-                      ),
-                    ),
-                  ),
-                  child: const Icon(
-                    Icons.person,
-                  ),
-                ),
-                DrawListTile(
-                  icon: Icons.home,
-                  title: "Home",
-                  onPress: () {},
-                ),
-                DrawListTile(
-                  icon: Icons.settings,
-                  title: "Settings",
-                  onPress: () {},
-                ),
-              ],
-            ),
+          WindowTitleBarBox(
+            child: MoveWindow(),
           ),
-
-          /// footer 부분 일단 할당해 놓음
-          SizedBox(
-            height: 70,
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              color: Colors.red,
-            ),
+          NavigationDrawerDestination(
+            icon: const Icon(Icons.home),
+            label: Text(S().home),
+          ),
+          NavigationDrawerDestination(
+            icon: const Icon(Icons.settings),
+            label: Text(S().todolist),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class DrawListTile extends StatelessWidget {
-  const DrawListTile({
-    Key? key,
-    required this.title,
-    required this.onPress,
-    required this.icon,
-  }) : super(key: key);
-
-  final String title;
-  final VoidCallback onPress;
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      onTap: onPress,
-      horizontalTitleGap: 0.0,
-      leading: Icon(
-        icon,
-        size: 20,
-      ),
-      title: Padding(
-        padding: const EdgeInsets.only(left: 10),
-        child: Text(
-          title,
-          style: const TextStyle(fontSize: 10),
-        ),
       ),
     );
   }

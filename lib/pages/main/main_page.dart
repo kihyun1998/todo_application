@@ -1,6 +1,7 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todo_application/pages/main/widgets/sidebar.dart';
 import 'package:todo_application/pages/main/widgets/titlebar.dart';
 import 'package:todo_application/providers/lang_provider.dart';
 import 'package:todo_application/providers/theme_provider.dart';
@@ -20,19 +21,7 @@ class MainPage extends ConsumerWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: NavigationDrawer(
-                  children: [
-                    WindowTitleBarBox(
-                      child: MoveWindow(),
-                    ),
-                    NavigationDrawerDestination(
-                      icon: const Icon(Icons.home),
-                      label: Text(S().home),
-                    ),
-                  ],
-                ),
-              ),
+              const SideBar(),
               Expanded(
                 flex: 3,
                 child: Container(
