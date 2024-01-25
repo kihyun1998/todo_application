@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_application/pages/main/widgets/titlebar.dart';
 import 'package:todo_application/providers/lang_provider.dart';
 import 'package:todo_application/providers/theme_provider.dart';
+import 'package:todo_application/style/component/custom_icon_button.dart';
 import 'package:todo_application/util/lang/generated/l10n.dart';
 
 class MainPage extends ConsumerWidget {
@@ -45,12 +46,13 @@ class MainPage extends ConsumerWidget {
                         },
                         icon: const Icon(Icons.language),
                       ),
-                      IconButton(
+                      CustomIconButton(
                         onPressed: () {
                           ref.read(themeProvider.notifier).toggleTheme();
                         },
-                        icon: const Icon(Icons.color_lens),
-                      )
+                        icon: Icons.color_lens,
+                        iconSize: 40,
+                      ),
                     ],
                   ),
                 ),
