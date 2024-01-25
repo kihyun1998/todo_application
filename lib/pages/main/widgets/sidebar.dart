@@ -9,25 +9,35 @@ class SideBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
+      child: Column(
         children: [
-          WindowTitleBarBox(
-            child: MoveWindow(),
-          ),
-          const DrawerHeader(
-            child: Icon(
-              Icons.person,
+          Expanded(
+            child: ListView(
+              children: [
+                WindowTitleBarBox(
+                  child: MoveWindow(),
+                ),
+                const DrawerHeader(
+                  child: Icon(
+                    Icons.person,
+                  ),
+                ),
+                DrawListTile(
+                  icon: Icons.home,
+                  title: "Home",
+                  onPress: () {},
+                ),
+                DrawListTile(
+                  icon: Icons.settings,
+                  title: "Settings",
+                  onPress: () {},
+                ),
+              ],
             ),
           ),
-          DrawListTile(
-            icon: Icons.home,
-            title: "Home",
-            onPress: () {},
-          ),
-          DrawListTile(
-            icon: Icons.settings,
-            title: "Settings",
-            onPress: () {},
+          Container(
+            padding: const EdgeInsets.all(10),
+            color: Colors.red,
           ),
         ],
       ),
