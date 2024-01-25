@@ -10,6 +10,7 @@ class SideBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Column(
+        /// [ToDo] 하드코딩 된거 바꾸기
         children: [
           Expanded(
             child: ListView(
@@ -17,8 +18,16 @@ class SideBar extends StatelessWidget {
                 WindowTitleBarBox(
                   child: MoveWindow(),
                 ),
-                const DrawerHeader(
-                  child: Icon(
+                DrawerHeader(
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: Divider.createBorderSide(
+                        context,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                  child: const Icon(
                     Icons.person,
                   ),
                 ),
@@ -35,9 +44,14 @@ class SideBar extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            padding: const EdgeInsets.all(10),
-            color: Colors.red,
+
+          /// footer 부분 일단 할당해 놓음
+          SizedBox(
+            height: 70,
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              color: Colors.red,
+            ),
           ),
         ],
       ),
