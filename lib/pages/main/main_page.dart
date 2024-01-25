@@ -23,7 +23,6 @@ class MainPage extends ConsumerWidget {
               Expanded(
                 flex: 5,
                 child: Container(
-                  color: Colors.blue,
                   child: const Column(
                     children: [
                       TitleBar(),

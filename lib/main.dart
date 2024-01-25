@@ -1,11 +1,14 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todo_application/extensions/theme_extensions.dart';
 import 'package:todo_application/pages/main/main_page.dart';
+import 'package:todo_application/providers/lang_provider.dart';
 import 'package:todo_application/util/lang/generated/l10n.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
   doWhenWindowReady(() {
     final win = appWindow;
     win.minSize = const Size(600, 450);
@@ -16,11 +19,11 @@ void main() {
   });
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       localizationsDelegates: const [
         S.delegate,
@@ -31,10 +34,8 @@ class MyApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'TodoApp',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: ref.themeData,
+      locale: ref.watch(languageProvider),
       home: const MainPage(),
     );
   }

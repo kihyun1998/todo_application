@@ -10,9 +10,9 @@ class DarkTheme implements AppTheme {
 
   @override
   AppColor color = AppColor(
-    surface: Palette.secondaryDarkBg,
+    surface: Palette.grey800,
     surface2: Palette.grey850,
-    background: Palette.primaryDarkBg,
+    background: Palette.black.withOpacity(0.55),
     text: Palette.grey100,
     subtext: Palette.grey500,
     toastContainer: Palette.grey100.withOpacity(0.85),

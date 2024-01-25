@@ -42,6 +42,9 @@ extension ThemeServiceExt on WidgetRef {
           color: theme.color.text,
         ),
       ),
+      drawerTheme: DrawerThemeData(
+        backgroundColor: theme.color.surface,
+      ),
     );
   }
 }
