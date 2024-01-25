@@ -1,4 +1,5 @@
 {
     "@@locale" : "en",
-    "language" : "language"
+    "language" : "language",
+    "home": "Home"
 }

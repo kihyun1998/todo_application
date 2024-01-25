@@ -2,6 +2,9 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_application/pages/main/widgets/titlebar.dart';
+import 'package:todo_application/providers/lang_provider.dart';
+import 'package:todo_application/providers/theme_provider.dart';
+import 'package:todo_application/util/lang/generated/l10n.dart';
 
 class MainPage extends ConsumerWidget {
   const MainPage({super.key});
@@ -22,9 +25,9 @@ class MainPage extends ConsumerWidget {
                     WindowTitleBarBox(
                       child: MoveWindow(),
                     ),
-                    const NavigationDrawerDestination(
-                      icon: Icon(Icons.home),
-                      label: Text("home"),
+                    NavigationDrawerDestination(
+                      icon: const Icon(Icons.home),
+                      label: Text(S().home),
                     ),
                   ],
                 ),
@@ -32,9 +35,22 @@ class MainPage extends ConsumerWidget {
               Expanded(
                 flex: 3,
                 child: Container(
-                  child: const Column(
+                  child: Column(
                     children: [
-                      TitleBar(),
+                      const TitleBar(),
+                      IconButton(
+                        onPressed: () {
+                          ref.read(languageProvider.notifier).toggleLanguage();
+                          print(S().home);
+                        },
+                        icon: const Icon(Icons.language),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          ref.read(themeProvider.notifier).toggleTheme();
+                        },
+                        icon: const Icon(Icons.color_lens),
+                      )
                     ],
                   ),
                 ),

@@ -1,4 +1,5 @@
 {
     "@@locale" : "ko",
-    "language" : "언어"
+    "language" : "언어",
+    "home": "홈"
 }

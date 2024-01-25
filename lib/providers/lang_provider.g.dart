@@ -6,7 +6,7 @@ part of 'lang_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$languageHash() => r'6a76d51fb6471684cc866446c58f1913cbbe178b';
+String _$languageHash() => r'6fd2f30caacc618fead32fcd4209701ba2e6da2e';
 
 /// 다국어 설정 변경 시 재기동 로직 실행되어야 한다.
 ///

@@ -11,4 +11,8 @@ class Language extends _$Language {
   Locale build() {
     return IntlHelper.en;
   }
+
+  void toggleLanguage() {
+    state = IntlHelper.isKo ? IntlHelper.en : IntlHelper.ko;
+  }
 }
