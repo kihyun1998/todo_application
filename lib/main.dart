@@ -2,7 +2,6 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo_application/extensions/theme_extensions.dart';
 import 'package:todo_application/pages/main/main_page.dart';
 import 'package:todo_application/providers/lang_provider.dart';
 import 'package:todo_application/util/lang/generated/l10n.dart';
@@ -34,7 +33,6 @@ class MyApp extends ConsumerWidget {
       supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'TodoApp',
-      theme: ref.themeData,
       locale: ref.watch(languageProvider),
       home: const MainPage(),
     );
