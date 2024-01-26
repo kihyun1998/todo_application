@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:todo_application/providers/states/language_state.dart';
 import 'package:todo_application/util/helper/intl_helper.dart';
 
 part 'lang_provider.g.dart';
@@ -8,11 +8,12 @@ part 'lang_provider.g.dart';
 @riverpod
 class Language extends _$Language {
   @override
-  Locale build() {
-    return IntlHelper.en;
+  LanguageState build() {
+    return LanguageState.init();
   }
 
   void toggleLanguage() {
-    state = IntlHelper.isKo ? IntlHelper.en : IntlHelper.ko;
+    state =
+        state.copyWith(local: IntlHelper.isKo ? IntlHelper.en : IntlHelper.ko);
   }
 }

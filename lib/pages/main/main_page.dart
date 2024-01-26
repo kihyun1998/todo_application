@@ -6,13 +6,13 @@ import 'package:todo_application/pages/main/widgets/titlebar.dart';
 import 'package:todo_application/providers/lang_provider.dart';
 import 'package:todo_application/providers/theme_provider.dart';
 import 'package:todo_application/style/component/custom_icon_button.dart';
-import 'package:todo_application/util/lang/generated/l10n.dart';
 
 class MainPage extends ConsumerWidget {
   const MainPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final word = ref.watch(languageProvider).word;
     return Scaffold(
       body: WindowBorder(
         width: 1,
@@ -31,7 +31,6 @@ class MainPage extends ConsumerWidget {
                       IconButton(
                         onPressed: () {
                           ref.read(languageProvider.notifier).toggleLanguage();
-                          print(S().home);
                         },
                         icon: const Icon(Icons.language),
                       ),

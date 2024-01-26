@@ -34,7 +34,7 @@ class MyApp extends ConsumerWidget {
       supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'TodoApp',
-      locale: ref.watch(languageProvider),
+      locale: ref.watch(languageProvider).local,
       theme: ref.themeData,
       home: const MainPage(),
     );
