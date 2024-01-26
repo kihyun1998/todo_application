@@ -8,9 +8,9 @@ class LightTheme implements AppTheme {
 
   @override
   AppColor color = AppColor(
-    surface: Palette.white,
+    surface: Palette.grey200,
     surface2: Palette.grey100,
-    background: Palette.grey250, //배경색
+    background: Palette.white, //배경색
     text: Palette.black,
     subtext: Palette.grey700,
     hint: Palette.grey300,

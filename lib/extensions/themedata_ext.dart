@@ -15,7 +15,7 @@ extension ThemeServiceExt on WidgetRef {
       ),
       scaffoldBackgroundColor: theme.color.background,
       navigationDrawerTheme: NavigationDrawerThemeData(
-        backgroundColor: theme.color.background,
+        backgroundColor: theme.color.surface,
       ),
     );
   }

@@ -6,9 +6,9 @@ enum ButtonSize {
   double getSize() {
     switch (this) {
       case ButtonSize.small:
-        return 50;
+        return 40;
       case ButtonSize.medium:
-        return 80;
+        return 70;
       case ButtonSize.large:
         return 110;
     }

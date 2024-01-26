@@ -41,21 +41,21 @@ class AppFont {
     height: 1.3,
     fontFamily: font.name,
     fontWeight: font.semiBold,
-    fontSize: 20,
+    fontSize: 19,
     color: fontColor,
   );
   late final TextStyle headline5 = TextStyle(
     height: 1.3,
     fontFamily: font.name,
     fontWeight: font.semiBold,
-    fontSize: 19,
+    fontSize: 17,
     color: fontColor,
   );
   late final TextStyle headline6 = TextStyle(
     height: 1.3,
     fontFamily: font.name,
     fontWeight: font.semiBold,
-    fontSize: 18,
+    fontSize: 15,
     color: fontColor,
   );
 
@@ -64,14 +64,14 @@ class AppFont {
     height: 1.3,
     fontFamily: font.name,
     fontWeight: font.regular,
-    fontSize: 16,
+    fontSize: 14,
     color: fontColor,
   );
   late final TextStyle subtitle2 = TextStyle(
     height: 1.3,
     fontFamily: font.name,
     fontWeight: font.regular,
-    fontSize: 15,
+    fontSize: 12,
     color: fontColor,
   );
 
