@@ -1,6 +1,7 @@
 {
     "@@locale" : "ko",
     "language" : "언어",
-    "home": "홈",
-    "todolist":"할 일 목록"
+    "home" : "홈",
+    "todolist" : "할 일 목록",
+    "search" : "검색"
 }

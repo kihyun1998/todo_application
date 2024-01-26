@@ -4,10 +4,12 @@ class AppFont {
   AppFont({
     required this.font,
     required this.fontColor,
+    required this.hintColor,
   });
 
   final Font font;
   final Color fontColor;
+  final Color hintColor;
 
   late FontWeight light = font.light;
   late FontWeight regular = font.regular;
@@ -80,6 +82,13 @@ class AppFont {
     fontWeight: font.regular,
     fontSize: 14,
     color: fontColor,
+  );
+  late final TextStyle hintBody1 = TextStyle(
+    height: 1.3,
+    fontFamily: font.name,
+    fontWeight: font.regular,
+    fontSize: 14,
+    color: hintColor,
   );
   late final TextStyle body2 = TextStyle(
     height: 1.3,

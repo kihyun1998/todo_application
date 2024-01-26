@@ -29,5 +29,6 @@ class DarkTheme implements AppTheme {
   late AppFont font = AppFont(
     font: const NotoSans(),
     fontColor: color.text,
+    hintColor: color.hint,
   );
 }

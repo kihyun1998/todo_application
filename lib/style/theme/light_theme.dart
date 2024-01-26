@@ -9,8 +9,8 @@ class LightTheme implements AppTheme {
   @override
   AppColor color = AppColor(
     surface: Palette.white,
-    surface2: Palette.grey200,
-    background: Palette.grey200, //배경색
+    surface2: Palette.grey100,
+    background: Palette.grey250, //배경색
     text: Palette.black,
     subtext: Palette.grey700,
     hint: Palette.grey300,
@@ -21,7 +21,7 @@ class LightTheme implements AppTheme {
     onInactiveContainer: Palette.white,
     primary: Palette.blue,
     onPrimary: Palette.white,
-    secondary: Palette.grey,
+    secondary: Palette.ivoryPrimary,
     onSecondary: Palette.white,
   );
 
@@ -29,5 +29,6 @@ class LightTheme implements AppTheme {
   late AppFont font = AppFont(
     font: const NotoSans(),
     fontColor: color.text,
+    hintColor: color.hint,
   );
 }

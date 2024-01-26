@@ -1,6 +1,7 @@
 {
     "@@locale" : "en",
     "language" : "language",
-    "home": "Home",
-    "todolist":"Todo List"
+    "home" : "Home",
+    "todolist" : "Todo List",
+    "search" : "Search"
 }

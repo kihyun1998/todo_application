@@ -6,7 +6,7 @@ import 'package:todo_application/style/foundation/app_theme.dart';
 extension ThemeServiceExt on WidgetRef {
   AppTheme get theme => watch(themeProvider);
   AppColor get color => theme.color;
-  AppFont get font => theme.font;
+  AppFont? get font => theme.font;
   ThemeData get themeData {
     return ThemeData(
       // 주색상 설정
@@ -15,7 +15,7 @@ extension ThemeServiceExt on WidgetRef {
       ),
       scaffoldBackgroundColor: theme.color.background,
       navigationDrawerTheme: NavigationDrawerThemeData(
-        backgroundColor: theme.color.primary,
+        backgroundColor: theme.color.background,
       ),
     );
   }

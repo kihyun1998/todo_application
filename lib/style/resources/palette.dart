@@ -27,4 +27,8 @@ abstract class Palette {
   static Color grey870 = const Color(0xFF1A1A1A);
   static Color grey900 = const Color(0xFF111111);
   static Color black = const Color(0xFF000000);
+
+  static Color ivorySurface = const Color(0xFFF8F5ED);
+  static Color ivoryBackground = const Color(0xFFE8E3D5);
+  static Color ivoryPrimary = const Color(0xFFC7BCA6);
 }
