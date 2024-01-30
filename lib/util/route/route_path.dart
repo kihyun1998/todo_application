@@ -16,15 +16,35 @@ abstract class RoutePath {
         page = const MainPage();
         break;
     }
+
     // return MaterialPageRoute(builder: (context) => page);
+
+    // return PageRouteBuilder(
+    //   pageBuilder: (context, animation, secondaryAnimation) => page,
+    //   transitionsBuilder: (context, animation, secondaryAnimation, child) {
+    //     return FadeTransition(
+    //       opacity: animation,
+    //       child: child,
+    //     );
+    //   },
+    //   transitionDuration: const Duration(seconds: 1),
+    // );
+
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return FadeTransition(
-          opacity: animation,
+        const begin = Offset(10.0, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+        final tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        final offsetAnimation = animation.drive(tween);
+        return SlideTransition(
+          position: offsetAnimation,
           child: child,
         );
       },
+      transitionDuration: const Duration(milliseconds: 500),
     );
   }
 }

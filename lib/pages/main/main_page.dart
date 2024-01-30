@@ -15,13 +15,18 @@ class MainPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) {
-        // 메인 페이지 초기 창 크기
+    // doWhenWindowReady(() {
+    //   appWindow.size = const Size(800, 800);
+    //   appWindow.show();
+    // });
 
-        appWindow.size = const Size(800, 800);
-      },
-    );
+    // WidgetsBinding.instance.addPostFrameCallback(
+    //   (_) {
+    //     // 메인 페이지 초기 창 크기
+
+    //     appWindow.size = const Size(800, 800);
+    //   },
+    // );
 
     final word = ref.watch(languageProvider).word;
 
