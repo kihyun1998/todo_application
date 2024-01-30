@@ -26,9 +26,8 @@ class NaviDrawer extends ConsumerWidget {
       bottomLeft: Radius.circular(32),
     );
 
+    // selectedIndex 바뀌면 화면 리랜더링을 위해서
     final selectedIndex = ref.watch(sideBarProvider);
-
-    List<IconData> itemIconList = [];
 
     List<NaviItem> itemList = [
       NaviItem(
@@ -41,6 +40,24 @@ class NaviDrawer extends ConsumerWidget {
       ),
     ];
 
+    List<Widget> preItems = [
+      Column(
+        children: [
+          WindowTitleBarBox(
+            child: MoveWindow(),
+          ),
+          const Icon(
+            Icons.info,
+            size: 50,
+          ),
+        ],
+      ),
+      Divider(
+        color: ref.theme.color.background,
+        height: 5,
+      ),
+    ];
+
     return Expanded(
       child: Drawer(
         child: ListView.separated(
@@ -49,53 +66,57 @@ class NaviDrawer extends ConsumerWidget {
               height: 5,
             );
           },
-          itemCount: itemList.length + 2,
+          itemCount: preItems.length + itemList.length,
           itemBuilder: (context, index) {
             switch (index) {
               case 0:
-                return Column(
-                  children: [
-                    WindowTitleBarBox(
-                      child: MoveWindow(),
-                    ),
-                    const Icon(
-                      Icons.info,
-                      size: 50,
-                    ),
-                  ],
-                );
               case 1:
-                return Divider(
-                  color: ref.theme.color.background,
-                  height: 5,
-                );
+                return preItems[index];
             }
             return ListTile(
+              // subtitle: ListView.builder(
+              //   shrinkWrap: true,
+              //   itemCount: 3,
+              //   itemBuilder: (context, index) {
+              //     return const ListTile(
+              //       title: Text("test"),
+              //     );
+              //   },
+              // ),
               leading: Icon(
-                itemList[index - 2].icon,
-                color: ref.read(sideBarProvider.notifier).isSelected(index)
+                itemList[index - preItems.length].icon,
+                color: ref
+                        .read(sideBarProvider.notifier)
+                        .isSelected(index - preItems.length)
                     ? ref.theme.color.text
                     : ref.theme.color.onPrimary,
               ),
-              tileColor: ref.read(sideBarProvider.notifier).isSelected(index)
+              tileColor: ref
+                      .read(sideBarProvider.notifier)
+                      .isSelected(index - preItems.length)
                   ? ref.theme.color.background
                   : ref.theme.color.primary,
               title: Text(
-                itemList[index - 2].title,
+                itemList[index - preItems.length].title,
                 style: ref.theme.font.headline6.copyWith(
-                  color: ref.read(sideBarProvider.notifier).isSelected(index)
+                  color: ref
+                          .read(sideBarProvider.notifier)
+                          .isSelected(index - preItems.length)
                       ? ref.theme.color.text
                       : ref.theme.color.onPrimary,
                 ),
               ),
               shape: RoundedRectangleBorder(
-                borderRadius:
-                    ref.read(sideBarProvider.notifier).isSelected(index)
-                        ? selectedborderRadius
-                        : borderRadius,
+                borderRadius: ref
+                        .read(sideBarProvider.notifier)
+                        .isSelected(index - preItems.length)
+                    ? selectedborderRadius
+                    : borderRadius,
               ),
               onTap: () {
-                ref.read(sideBarProvider.notifier).onDestinationSelected(index);
+                ref
+                    .read(sideBarProvider.notifier)
+                    .onDestinationSelected(index - preItems.length);
               },
             );
           },

@@ -10,11 +10,11 @@ class SideBar extends _$SideBar {
   }
 
   void onDestinationSelected(int newIndex) {
-    state = newIndex - 2;
+    state = newIndex;
     print(state);
   }
 
   bool isSelected(int newIndex) {
-    return state == newIndex - 2 ? true : false;
+    return state == newIndex ? true : false;
   }
 }
