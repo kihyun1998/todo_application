@@ -17,6 +17,10 @@ extension ThemeServiceExt on WidgetRef {
       navigationDrawerTheme: NavigationDrawerThemeData(
         backgroundColor: theme.color.surface,
       ),
+      drawerTheme: DrawerThemeData(
+        backgroundColor: theme.color.primary,
+        elevation: 0,
+      ),
     );
   }
 }
