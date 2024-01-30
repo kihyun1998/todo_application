@@ -1,7 +1,6 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo_application/pages/main/providers/sidebar_provider.dart';
 import 'package:todo_application/pages/main/widgets/navi_drawer.dart';
 import 'package:todo_application/pages/main/widgets/titlebar.dart';
 import 'package:todo_application/pages/todo_list/widgets/todo_list_header.dart';
@@ -16,21 +15,15 @@ class MainPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const borderRadius = BorderRadius.only(
-      topRight: Radius.circular(0),
-      bottomRight: Radius.circular(0),
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        // 메인 페이지 초기 창 크기
+
+        appWindow.size = const Size(800, 800);
+      },
     );
 
-    const selectedborderRadius = BorderRadius.only(
-      topLeft: Radius.circular(32),
-      bottomLeft: Radius.circular(32),
-    );
     final word = ref.watch(languageProvider).word;
-    final selectedIndex = ref.watch(sideBarProvider);
-    List<String> itemList = [
-      word.home,
-      word.todolist,
-    ];
 
     return Scaffold(
       body: WindowBorder(
