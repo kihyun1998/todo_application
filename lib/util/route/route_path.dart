@@ -33,9 +33,9 @@ abstract class RoutePath {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(10.0, 0.0);
+        const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
-        const curve = Curves.ease;
+        const curve = Curves.elasticOut;
         final tween =
             Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
         final offsetAnimation = animation.drive(tween);
@@ -44,7 +44,7 @@ abstract class RoutePath {
           child: child,
         );
       },
-      transitionDuration: const Duration(milliseconds: 500),
+      transitionDuration: const Duration(milliseconds: 1000),
     );
   }
 }
