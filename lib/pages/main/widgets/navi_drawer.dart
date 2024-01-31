@@ -73,52 +73,64 @@ class NaviDrawer extends ConsumerWidget {
               case 1:
                 return preItems[index];
             }
-            return ListTile(
-              // subtitle: ListView.builder(
-              //   shrinkWrap: true,
-              //   itemCount: 3,
-              //   itemBuilder: (context, index) {
-              //     return const ListTile(
-              //       title: Text("test"),
-              //     );
-              //   },
-              // ),
-              leading: Icon(
-                itemList[index - preItems.length].icon,
-                color: ref
-                        .read(sideBarProvider.notifier)
-                        .isSelected(index - preItems.length)
-                    ? ref.theme.color.text
-                    : ref.theme.color.onPrimary,
-              ),
-              tileColor: ref
-                      .read(sideBarProvider.notifier)
-                      .isSelected(index - preItems.length)
-                  ? ref.theme.color.background
-                  : ref.theme.color.primary,
-              title: Text(
-                itemList[index - preItems.length].title,
-                style: ref.theme.font.headline6.copyWith(
-                  color: ref
+            return itemList[index - preItems.length].title == word.home
+                ? ListTile(
+                    leading: Icon(
+                      itemList[index - preItems.length].icon,
+                      color: ref
+                              .read(sideBarProvider.notifier)
+                              .isSelected(index - preItems.length)
+                          ? ref.theme.color.text
+                          : ref.theme.color.onPrimary,
+                    ),
+                    tileColor: ref
+                            .read(sideBarProvider.notifier)
+                            .isSelected(index - preItems.length)
+                        ? ref.theme.color.background
+                        : ref.theme.color.primary,
+                    title: Text(
+                      itemList[index - preItems.length].title,
+                      style: ref.theme.font.headline6.copyWith(
+                        color: ref
+                                .read(sideBarProvider.notifier)
+                                .isSelected(index - preItems.length)
+                            ? ref.theme.color.text
+                            : ref.theme.color.onPrimary,
+                      ),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: ref
+                              .read(sideBarProvider.notifier)
+                              .isSelected(index - preItems.length)
+                          ? selectedborderRadius
+                          : borderRadius,
+                    ),
+                    onTap: () {
+                      ref
                           .read(sideBarProvider.notifier)
-                          .isSelected(index - preItems.length)
-                      ? ref.theme.color.text
-                      : ref.theme.color.onPrimary,
-                ),
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: ref
-                        .read(sideBarProvider.notifier)
-                        .isSelected(index - preItems.length)
-                    ? selectedborderRadius
-                    : borderRadius,
-              ),
-              onTap: () {
-                ref
-                    .read(sideBarProvider.notifier)
-                    .onDestinationSelected(index - preItems.length);
-              },
-            );
+                          .onDestinationSelected(index - preItems.length);
+                    },
+                  )
+                : ExpansionTile(
+                    title: Text(
+                      itemList[index - preItems.length].title,
+                      style: ref.theme.font.headline6.copyWith(
+                        color: ref
+                                .read(sideBarProvider.notifier)
+                                .isSelected(index - preItems.length)
+                            ? ref.theme.color.text
+                            : ref.theme.color.onPrimary,
+                      ),
+                    ),
+                    children: [
+                      ListTile(
+                        title: const Text(
+                          "Test",
+                        ),
+                        onTap: () {},
+                      )
+                    ],
+                  );
           },
         ),
       ),
