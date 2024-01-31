@@ -11,8 +11,8 @@ void main() {
   runApp(const ProviderScope(child: MyApp()));
   doWhenWindowReady(() {
     final win = appWindow;
-    win.minSize = const Size(400, 400);
-    win.size = const Size(400, 400);
+    win.minSize = const Size(500, 500);
+    win.size = const Size(500, 500);
     win.alignment = Alignment.center;
     win.title = "TodoApp";
     win.show();

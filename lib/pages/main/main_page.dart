@@ -1,6 +1,7 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todo_application/const.dart';
 import 'package:todo_application/pages/main/widgets/navi_drawer.dart';
 import 'package:todo_application/pages/main/widgets/titlebar.dart';
 import 'package:todo_application/pages/todo_list/widgets/todo_list_header.dart';
@@ -15,10 +16,11 @@ class MainPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // doWhenWindowReady(() {
-    //   appWindow.size = const Size(800, 800);
-    //   appWindow.show();
-    // });
+    doWhenWindowReady(() {
+      // 미리 정의한 main page size
+      appWindow.size = mainPageSize;
+      appWindow.show();
+    });
 
     // WidgetsBinding.instance.addPostFrameCallback(
     //   (_) {
